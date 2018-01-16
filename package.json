@@ -1,0 +1,14 @@
+{
+  "name": "unicode",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/bsb -backend native && ./lib/bs/native/utf8_test.native"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bs-platform": "bsansouci/bsb-native#2.1.1"
+  }
+}
