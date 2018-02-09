@@ -2,10 +2,10 @@
   "name" : "Unicode",
   "sources" : "src",
   "entries": [
-//    {
-//    "backend": "native",
-//    "main-module": "Bench"
-//  },
+    {
+    "backend": "native",
+    "main-module": "Utf8_bench"
+  },
   {
     "backend": "native",
     "main-module": "Utf8_test"

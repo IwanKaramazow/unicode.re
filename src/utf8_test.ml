@@ -1,47 +1,49 @@
 type utf8Test = {
-  uchar: int;
+  uchar: Uchar.t;
   str: string;
   size: int;
 }
 
+let fi = Uchar.fromInt
+
 let utf8Tests = [
-  {uchar = 0x00; str = "\x00"; size = 1};
-  {uchar = 0x01; str = "\x01"; size = 1};
-  {uchar = 0x7e; str = "\x7e"; size = 1};
-  {uchar = 0x7f; str = "\x7f"; size = 1};
-  {uchar = 0x0080; str = "\xc2\x80"; size = 2};
-  {uchar = 0x0081; str = "\xc2\x81"; size = 2};
-  {uchar = 0x00bf; str = "\xc2\xbf"; size = 2};
-  {uchar = 0x00c0; str = "\xc3\x80"; size = 2};
-  {uchar = 0x00c1; str = "\xc3\x81"; size = 2};
-  {uchar = 0x00c8; str = "\xc3\x88"; size = 2};
-  {uchar = 0x00d0; str = "\xc3\x90"; size = 2};
-  {uchar = 0x00e0; str = "\xc3\xa0"; size = 2};
-  {uchar = 0x00f0; str = "\xc3\xb0"; size = 2};
-  {uchar = 0x00f8; str = "\xc3\xb8"; size = 2};
-  {uchar = 0x00ff; str = "\xc3\xbf"; size = 2};
-  {uchar = 0x0100; str = "\xc4\x80"; size = 2};
-  {uchar = 0x07ff; str = "\xdf\xbf"; size = 2};
-  {uchar = 0x0400; str = "\xd0\x80"; size = 2};
-  {uchar = 0x0800; str = "\xe0\xa0\x80"; size = 3};
-  {uchar = 0x0801; str = "\xe0\xa0\x81"; size = 3};
-  {uchar = 0x1000; str = "\xe1\x80\x80"; size = 3};
-  {uchar = 0xd000; str = "\xed\x80\x80"; size = 3};
-  {uchar = 0xd7ff; str = "\xed\x9f\xbf"; size = 3};
-  {uchar = 0xe000; str = "\xee\x80\x80"; size = 3};
-  {uchar = 0xfffe; str = "\xef\xbf\xbe"; size = 3};
-  {uchar = 0xffff; str = "\xef\xbf\xbf"; size = 3};
-  {uchar = 0x10000; str = "\xf0\x90\x80\x80"; size = 4};
-  {uchar = 0x10001; str = "\xf0\x90\x80\x81"; size = 4};
-  {uchar = 0x40000; str = "\xf1\x80\x80\x80"; size = 4};
-  {uchar = 0x10fffe; str = "\xf4\x8f\xbf\xbe"; size = 4};
-  {uchar = 0x10ffff; str = "\xf4\x8f\xbf\xbf"; size = 4};
-  {uchar = 0xFFFD; str = "\xef\xbf\xbd"; size = 3}
+  {uchar = fi 0x00; str = "\x00"; size = 1};
+  {uchar = fi 0x01; str = "\x01"; size = 1};
+  {uchar = fi 0x7e; str = "\x7e"; size = 1};
+  {uchar = fi 0x7f; str = "\x7f"; size = 1};
+  {uchar = fi 0x0080; str = "\xc2\x80"; size = 2};
+  {uchar = fi 0x0081; str = "\xc2\x81"; size = 2};
+  {uchar = fi 0x00bf; str = "\xc2\xbf"; size = 2};
+  {uchar = fi 0x00c0; str = "\xc3\x80"; size = 2};
+  {uchar = fi 0x00c1; str = "\xc3\x81"; size = 2};
+  {uchar = fi 0x00c8; str = "\xc3\x88"; size = 2};
+  {uchar = fi 0x00d0; str = "\xc3\x90"; size = 2};
+  {uchar = fi 0x00e0; str = "\xc3\xa0"; size = 2};
+  {uchar = fi 0x00f0; str = "\xc3\xb0"; size = 2};
+  {uchar = fi 0x00f8; str = "\xc3\xb8"; size = 2};
+  {uchar = fi 0x00ff; str = "\xc3\xbf"; size = 2};
+  {uchar = fi 0x0100; str = "\xc4\x80"; size = 2};
+  {uchar = fi 0x07ff; str = "\xdf\xbf"; size = 2};
+  {uchar = fi 0x0400; str = "\xd0\x80"; size = 2};
+  {uchar = fi 0x0800; str = "\xe0\xa0\x80"; size = 3};
+  {uchar = fi 0x0801; str = "\xe0\xa0\x81"; size = 3};
+  {uchar = fi 0x1000; str = "\xe1\x80\x80"; size = 3};
+  {uchar = fi 0xd000; str = "\xed\x80\x80"; size = 3};
+  {uchar = fi 0xd7ff; str = "\xed\x9f\xbf"; size = 3};
+  {uchar = fi 0xe000; str = "\xee\x80\x80"; size = 3};
+  {uchar = fi 0xfffe; str = "\xef\xbf\xbe"; size = 3};
+  {uchar = fi 0xffff; str = "\xef\xbf\xbf"; size = 3};
+  {uchar = fi 0x10000; str = "\xf0\x90\x80\x80"; size = 4};
+  {uchar = fi 0x10001; str = "\xf0\x90\x80\x81"; size = 4};
+  {uchar = fi 0x40000; str = "\xf1\x80\x80\x80"; size = 4};
+  {uchar = fi 0x10fffe; str = "\xf4\x8f\xbf\xbe"; size = 4};
+  {uchar = fi 0x10ffff; str = "\xf4\x8f\xbf\xbf"; size = 4};
+  {uchar = fi 0xFFFD; str = "\xef\xbf\xbd"; size = 3}
 ]
 
 let surrogateRange = [
-  {uchar = 0xFFFD; str = "\xed\xa0\x80"; size = 1};
-  {uchar = 0xFFFD; str = "\xed\xbf\xbf"; size = 1};
+  {uchar = fi 0xFFFD; str = "\xed\xa0\x80"; size = 1};
+  {uchar = fi 0xFFFD; str = "\xed\xbf\xbf"; size = 1};
 ]
 
 let invalidSequences = [
@@ -147,12 +149,12 @@ let () =
   List.iter (fun str ->
     let len = String.length str in
     let (u, s) = Utf8.decodeUcharInString 0 str len in
-    assert (u = 0xFFFD);
+    assert (u = Uchar.fromInt 0xFFFD);
     assert (s = 1);
     let bts = Bytes.of_string str in
     let len = Bytes.length bts in
     let (u, s) = Utf8.decodeUchar 0 bts len in
-    assert (u = 0xFFFD);
+    assert (u = Uchar.fromInt 0xFFFD);
     assert (s = 1);
     (* TODO runtime decode !!!! *)
     ()
@@ -179,3 +181,13 @@ let () =
 
 
 let () = print_endline "utf8_test succeeded! :) "
+
+let () = 
+  let b = Bytes.create 2 in
+  let nwritten = (Utf8.encodeUchar b (Uchar.fromInt 128)) in
+  assert (nwritten = 2);
+  print_int (Char.code (Bytes.get b 0));
+  print_newline ();
+  print_int (Char.code (Bytes.get b 1));
+  print_newline ()
+
