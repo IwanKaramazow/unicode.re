@@ -8,3 +8,5 @@ let fromChar c = Char.code c
 let bom = 0xFEFF
 
 let repl = 0xFFFD
+
+let isChar u = u < 256

@@ -1,6 +1,6 @@
 {
   "name" : "Unicode",
-  "sources" : "src",
+  "sources" : ["src", "ppx"],
   "entries": [
     {
     "backend": "native",
@@ -9,6 +9,15 @@
   {
     "backend": "native",
     "main-module": "Utf8_test"
-  }],
-  "ocaml-flags": ["-safe-string"]
+  }, {
+    "backend": "native",
+    "main-module": "Ppx_unicode"
+  }, {
+    "backend": "native",
+    "main-module": "Ppx_test"
+  }
+  ],
+  "ocaml-flags": ["-safe-string"],
+  "ppx-flags": ["./lib/bs/native/ppx_unicode.native"],
+  "ocaml-dependencies": ["compiler-libs", "unix"]
 }
