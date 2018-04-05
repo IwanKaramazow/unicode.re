@@ -12,7 +12,8 @@
   }, {
     "backend": "native",
     "main-module": "Ppx_unicode"
-  }, {
+  }, 
+  {
     "backend": "native",
     "main-module": "Ppx_test"
   }
