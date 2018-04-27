@@ -1,24 +1,30 @@
 {
   "name" : "Unicode",
-  "sources" : ["src", "ppx"],
+  "sources" : [
+    "src",
+    {"dir": "ppx", "type": "ppx"},
+    "ppx_test"
+  ],
   "entries": [
     {
-    "backend": "native",
-    "main-module": "Utf8_bench"
-  },
-  {
-    "backend": "native",
-    "main-module": "Utf8_test"
-  }, {
-    "backend": "native",
-    "main-module": "Ppx_unicode"
-  }, 
-  {
-    "backend": "native",
-    "main-module": "Ppx_test"
-  }
+      "backend": "native",
+      "main-module": "Utf8_bench"
+    },
+    {
+      "backend": "native",
+      "main-module": "Utf8_test"
+    },
+    {
+      "backend": "bytecode",
+      "main-module": "Ppx_unicode",
+      "type": "ppx"
+    },
+    {
+      "backend": "native",
+      "main-module": "Ppx_test",
+      "ppx": ["Ppx_unicode"]
+    }
   ],
   "ocaml-flags": ["-safe-string"],
-  "ppx-flags": ["./lib/bs/native/ppx_unicode.native"],
-  "ocaml-dependencies": ["compiler-libs", "unix"]
+  "ocaml-dependencies": ["unix"]
 }
